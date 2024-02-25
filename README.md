@@ -87,7 +87,7 @@ https://localhost:44345/api/License/{id}
 #### Delete License
 
 ````
-DELETE /api/License
+DELETE /api/License/{id}
 https://localhost:44345/api/License/{id}
 
 ````
