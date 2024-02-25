@@ -38,6 +38,19 @@ namespace WebApiUnitTestDemo
         }
 
         [Fact]
+        public async Task GetLicenses_InvalidId_ReturnsNotFound()
+        {
+            // Arrange
+            var controller = new LicenseController(GetFaultyDbContext()); // Use a faulty DbContext
+
+            // Act
+            var result = await controller.GetLicenses(1);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
         public async Task CreateLicense_ReturnsCreatedAtActionResult()
         {
             // Arrange
@@ -52,6 +65,33 @@ namespace WebApiUnitTestDemo
             var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
             var createdLicense = Assert.IsType<License>(createdAtActionResult.Value);
             Assert.Equal(newLicense.LicenseKey, createdLicense.LicenseKey);
+        }
+
+        [Fact]
+        public async Task CreateLisence_InvalidModel_ReturnsBadRequest()
+        {
+            // Arrange
+            var controller = new LicenseController(GetDbContextWithData()); // Use a regular DbContext
+
+            // Act
+            controller.ModelState.AddModelError("LicenseKey", "LicenseKey is required"); // Add ModelState error
+            var result = await controller.CreateLisence(new License { LicenseKey = null, ExpirationDate = "28-02" });
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task CreateLisence_DbError_ReturnsNotFound()
+        {
+            // Arrange
+            var controller = new LicenseController(GetFaultyDbContext()); // Use a faulty DbContext
+
+            // Act
+            var result = await controller.CreateLisence(new License { LicenseKey = "abc", ExpirationDate = "28-02" });
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
         }
 
         [Fact]
@@ -72,6 +112,20 @@ namespace WebApiUnitTestDemo
         }
 
         [Fact]
+        public async Task UpdateLicense_InvalidId_ReturnsNotFound()
+        {
+            // Arrange
+            var controller = new LicenseController(GetFaultyDbContext()); // Use a faulty DbContext
+
+            // Act
+            var result = await controller.UpdateLicense(1, new License { id = 2, LicenseKey = "new-key", ExpirationDate = "28-02" });
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+
+        [Fact]
         public async Task DeleteLicense_ReturnsOkResult()
         {
             // Arrange
@@ -85,6 +139,19 @@ namespace WebApiUnitTestDemo
             Assert.IsType<OkResult>(result);
             var entity = await dbContext.Licenses.FirstOrDefaultAsync(i => i.id == 1);
             Assert.Null(entity); // Ensure the entity is deleted
+        }
+
+        [Fact]
+        public async Task DeleteLicense_InvalidId_ReturnsNotFound()
+        {
+            // Arrange
+            var controller = new LicenseController(GetFaultyDbContext()); // Use a faulty DbContext
+
+            // Act
+            var result = await controller.DeleteLicense(1);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
         }
 
 
@@ -108,6 +175,15 @@ namespace WebApiUnitTestDemo
             return dbContext;
         }
 
+        public DemoDbContext GetFaultyDbContext()
+        {
+            // Creating a faulty DbContext by not using InMemoryDatabase
+            var options = new DbContextOptionsBuilder<DemoDbContext>()
+                .UseSqlServer("InvalidConnection") // Use an invalid connection string
+                .Options;
+
+            return new DemoDbContext(options);
+        }
 
 
     }
