@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWinForm", "DemoWinForm\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAPI", "DemoAPI\DemoAPI.csproj", "{992DCEA3-C35A-4DD4-914A-B9172A49FD93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiUnitTestDemo", "WebApiUnitTestDemo\WebApiUnitTestDemo.csproj", "{5BD96920-6946-44A4-AB48-7240B2DA1819}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,26 @@ Global
 		{992DCEA3-C35A-4DD4-914A-B9172A49FD93}.Release|x64.Build.0 = Release|Any CPU
 		{992DCEA3-C35A-4DD4-914A-B9172A49FD93}.Release|x86.ActiveCfg = Release|Any CPU
 		{992DCEA3-C35A-4DD4-914A-B9172A49FD93}.Release|x86.Build.0 = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|x64.Build.0 = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Debug|x86.Build.0 = Debug|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|ARM.Build.0 = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|ARM64.Build.0 = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|x64.ActiveCfg = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|x64.Build.0 = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|x86.ActiveCfg = Release|Any CPU
+		{5BD96920-6946-44A4-AB48-7240B2DA1819}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
