@@ -1,5 +1,9 @@
 # Demo Case
 
+### Kütüphaneler
+- EntityFrameWork Core
+- Devexpress (for Windows app)
+- Xunit ve Mock (for Unit Test)
 
 ### Endpoints
 
